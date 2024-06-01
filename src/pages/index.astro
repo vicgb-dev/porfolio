@@ -1,12 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 import Badge from "../components/Badge.astro";
-import GitHub from "../icons/GitHub.astro";
+import Mail from "../icons/Mail.astro";
 import Socials from "../components/Socials.astro";
 import Experience from "../components/Experience.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import Suitcase from "../icons/Suitcase.astro";
+import Rocket from "../icons/Rocket.astro";
+import Projects from "../components/Projects.astro";
 ---
 
 <Layout
@@ -21,10 +22,10 @@ import Suitcase from "../icons/Suitcase.astro";
                 alt="Victor photo"
             />
             <h1
-                class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-5"
+                class="text-white text-4xl md:text-5xl font-bold flex flex-row gap-x-4 pb-5"
             >
-                Hola, soy <span class="colored font-bold">Víctor </span>
-                <div class="flex justify-center items-center">
+                <p>Hola, soy <span class="colored font-bold">Víctor </span></p>
+                <!-- <div class="flex justify-center items-center">
                     <a
                         class="flex justify-center items-center"
                         href="https://www.linkedin.com/in/vgb"
@@ -33,7 +34,7 @@ import Suitcase from "../icons/Suitcase.astro";
                     >
                         <Badge>Disponible para trabajar</Badge>
                     </a>
-                </div>
+                </div> -->
             </h1>
             <h2 class="text-xl">
                 <span class="colored">Más de 2 años</span> de experiencia en desarrollo
@@ -43,21 +44,19 @@ import Suitcase from "../icons/Suitcase.astro";
             <Socials />
         </SectionContainer>
 
-        <SectionContainer id="experience">
-            <h2 class="text-3xl font-semibold pb-5 flex gap-x-3 items-center">
-                <Suitcase class="size-7" />Experiencia
-            </h2>
+        <SectionContainer id="experience" title="Experiencia">
+            <Suitcase slot="icon" class="size-7" />
             <Experience />
         </SectionContainer>
 
-        <SectionContainer id="projects">
-            <h2 class="text-3xl font-semibold pb-5">projects</h2>
-            <Experience />
+        <SectionContainer id="projects" title="Proyectos">
+            <Rocket slot="icon" class="size-7" />
+            <Projects />
         </SectionContainer>
 
-        <SectionContainer id="contact">
-            <h2 class="text-3xl font-semibold pb-5">contact</h2>
-            <Experience />
-        </SectionContainer>
+        <!-- <SectionContainer id="contact" title="Contacto">
+            <Mail slot="icon" class="size-7" />
+            <div class="w-full h-96 bg-black"></div>
+        </SectionContainer> -->
     </main>
 </Layout>

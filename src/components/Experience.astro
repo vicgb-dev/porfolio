@@ -1,0 +1,31 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const experiences = [
+    {
+        date: "Diciembre 2021 - Actualmente",
+        title: "Programador Fullstack",
+        description:
+            "Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.",
+        link: "#",
+    },
+    {
+        date: "Septiembre 2018 - Febrero 2019",
+        title: "Programador Junior",
+        description:
+            "All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.",
+    },
+];
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">
+    {
+        experiences.map((experience) => {
+            return (
+                <li class="mb-10 ms-4">
+                    <ExperienceItem {...experience} />
+                </li>
+            );
+        })
+    }
+</ol>

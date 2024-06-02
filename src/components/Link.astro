@@ -1,0 +1,17 @@
+---
+interface LinkProps {
+    url: string;
+    text: string;
+}
+
+const { url, text } = Astro.props;
+---
+
+<a
+    href={url}
+    class="colored on-colored inline-flex items-center py-2 text-lg font-medium"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    {text}
+</a>

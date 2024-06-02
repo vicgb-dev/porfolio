@@ -1,1 +1,259 @@
-<div class="w-full h-96 bg-black"></div>
+---
+import Project from "../components/Project.astro";
+import Link from "../components/Link.astro";
+import CSharp from "../icons/CSharp.astro";
+import Dart from "../icons/Dart.astro";
+import Flutter from "../icons/Flutter.astro";
+import NET from "../icons/NET.astro";
+import React from "../icons/React.astro";
+import Supabase from "../icons/Supabase.astro";
+import Tailwind from "../icons/Tailwind.astro";
+import TypeScript from "../icons/TypeScript.astro";
+import Unity from "../icons/Unity.astro";
+import Svelte from "../icons/Svelte.astro";
+
+import gwydion from "../images/projects/gwydion.webp";
+import shapescape from "../images/projects/shapescape.webp";
+import destekpro from "../images/projects/destekpro.webp";
+
+export enum ProjectType {
+    personal = "Personal",
+    enterprise = "Empresa",
+}
+
+export const TECHNOLOGIES = {
+    TechNET: {
+        name: ".NET",
+        color: "#512bd4",
+        icon: NET,
+    },
+    TechUnity: {
+        name: "Unity",
+        color: "#000000",
+        icon: Unity,
+    },
+    TechCSharp: {
+        name: "C#",
+        color: "#178600",
+        icon: CSharp,
+    },
+    TechFlutter: {
+        name: "Flutter",
+        color: "#02569b",
+        icon: Flutter,
+    },
+    TechDart: {
+        name: "Dart",
+        color: "#0175c2",
+        icon: Dart,
+    },
+    TechReact: {
+        name: "React",
+        color: "#61dafb",
+        icon: React,
+    },
+    TechTypeScript: {
+        name: "TypeScript",
+        color: "#007acc",
+        icon: TypeScript,
+    },
+    TechTailwind: {
+        name: "Tailwind",
+        color: "#38b2ac",
+        icon: Tailwind,
+    },
+    TechSupabase: {
+        name: "Supabase",
+        color: "#2f855a",
+        icon: Supabase,
+    },
+    TechSvelte: {
+        name: "Svelte",
+        color: "#ff3e00",
+        icon: Svelte,
+    },
+};
+
+export enum ProjectState {
+    published = "Publicado",
+    developing = "En desarrollo",
+    archived = "Archivado",
+}
+
+const projects = [
+    {
+        type: ProjectType.enterprise,
+        typeColor: "#5dcbdf",
+        state: ProjectState.published,
+        name: "Gwydion",
+        technologies: [
+            TECHNOLOGIES.TechNET,
+            TECHNOLOGIES.TechUnity,
+            TECHNOLOGIES.TechCSharp,
+        ],
+        image: gwydion,
+        url: "https://www.gwydion.space/es/inicio/",
+    },
+    {
+        type: ProjectType.personal,
+        typeColor: "#14f10c",
+        state: ProjectState.published,
+        name: "ShapeScape",
+        technologies: [TECHNOLOGIES.TechUnity, TECHNOLOGIES.TechCSharp],
+        image: shapescape,
+        url: "https://play.google.com/store/apps/details?id=com.FallingStudio.ShapeScape",
+    },
+    {
+        type: ProjectType.enterprise,
+        typeColor: "#5dcbdf",
+        state: ProjectState.published,
+        name: "DestekPro",
+        technologies: [
+            TECHNOLOGIES.TechNET,
+            TECHNOLOGIES.TechFlutter,
+            TECHNOLOGIES.TechDart,
+        ],
+        image: destekpro,
+        url: "https://destekpro.app",
+    },
+    {
+        type: ProjectType.personal,
+        typeColor: "#14f10c",
+        state: ProjectState.developing,
+        name: "Political Timeline",
+        technologies: [
+            TECHNOLOGIES.TechNET,
+            TECHNOLOGIES.TechSupabase,
+            TECHNOLOGIES.TechCSharp,
+            TECHNOLOGIES.TechReact,
+            TECHNOLOGIES.TechTypeScript,
+            TECHNOLOGIES.TechTailwind,
+        ],
+        image: "/images/projects/circle.png",
+        url: "https://circle.josebrowne.com",
+    },
+    {
+        type: ProjectType.enterprise,
+        typeColor: "#5dcbdf",
+        state: ProjectState.published,
+        name: "STap2Go",
+        technologies: [
+            TECHNOLOGIES.TechNET,
+            TECHNOLOGIES.TechUnity,
+            TECHNOLOGIES.TechCSharp,
+        ],
+        image: "/images/projects/orange.png",
+        url: "https://orange.josebrowne.com",
+    },
+    {
+        type: ProjectType.personal,
+        typeColor: "#14f10c",
+        state: ProjectState.archived,
+        name: "WeDay",
+        technologies: [
+            TECHNOLOGIES.TechSupabase,
+            TECHNOLOGIES.TechSvelte,
+            TECHNOLOGIES.TechTypeScript,
+            TECHNOLOGIES.TechTailwind,
+        ],
+        image: "/images/projects/square.png",
+        url: "https://square.josebrowne.com",
+    },
+];
+---
+
+<div class="flex gap-10 justify-center mb-10">
+    <label>
+        <input
+            type="checkbox"
+            name="personal"
+            class="rounded accent-[#14f10c]"
+            checked
+        />
+        Proyectos personales
+    </label>
+    <label>
+        <input
+            type="checkbox"
+            name="enterprise"
+            class="rounded accent-[#5dcbdf]"
+            checked
+        />
+        Proyectos en empresa
+    </label>
+</div>
+
+<div class="projects">
+    <Project {...projects[0]}>
+        <div slot="description">
+            <!-- Gwydion -->
+            Plataforma de XR en HoloLens2 para la creación de experiencias inmersivas,
+            orientado a la formación en el ámbito de la salud y la industria 4.0.
+            Andy te ayudará en el proceso de completar casos, realizar pruebas y
+            aprender de una manera más interactiva.
+        </div>
+        <div slot="link">
+            <Link
+                url="https://www.gwydion.space/es/inicio/"
+                text="Ver Gwydion..."
+            />
+        </div>
+    </Project>
+    <Project {...projects[1]}>
+        <div slot="description">
+            <!-- ShapeScape -->
+            Juego arcade con estilo minimalista en el que tendrás que esquivar enemigos
+            que aparecen al ritmo de la música clásica. Cuenta con más de 30 niveles,
+            desafíos y paquetes de personalización. Puedes jugarlo en tu móvil Android
+            o ver el trailer desde Google Play.
+        </div>
+
+        <div slot="link">
+            <Link
+                url="https://play.google.com/store/apps/details?id=com.FallingStudio.ShapeScape"
+                text="Ver ShapeScape en Google Play..."
+            />
+        </div>
+    </Project>
+    <Project {...projects[2]}>
+        <div slot="description">
+            <!-- DestekPro -->
+            Plataforma para IOS, Andriod y web para el mantenimiento de forma remota
+            de maquinaria industrial. También podrás poner incidencias entre cliente
+            y empresa, concretar citas, almacenar archivos, asignación de incidencias,
+            chat en tiempo real...
+        </div>
+
+        <div slot="link">
+            <Link
+                url="https://play.google.com/store/apps/details?id=ai.genetic.destek&hl=es_SV"
+                text="Ver DestekPro en Google Play..."
+            />
+        </div>
+    </Project>
+    <!-- <Project {...projects[3]}>
+        <div slot="description">
+            Medio de comunicación digital que busca informar de la manera más objetiva
+            posible sobre eventos políticos de España. Tendrá funciones de red social
+            para que los usuarios puedan poner sus propios eventos aprobados y publicados
+            por la administración previamente.
+        </div>
+    </Project>
+    <Project {...projects[4]}>
+        <div slot="description">
+            Serious game para la mejora de las funciones cognitivas de personas con
+            TDAH y TDA. El juego se basa en una serie de sesiones de entrenamiento
+            cognitivo que se realizan bajo supervisión de un profesional de la salud.
+        </div>
+    </Project>
+    <Project {...projects[5]}>
+        <div slot="description">
+            Wedding planner online que te ayudará a organizar tu boda de principio
+            a fin. Podrás elegir entre una serie de invitaciones de boda y personalizarlas
+            a tu gusto. Además, podrás invitar a tus amigos y familiares a través
+            de la plataforma y recibir confirmaciones de asistencia. También te podrás
+            poner en contacto con servicios de terceros como catering, fotografía,
+            música, transporte, etc. a través de la plataforma.
+        </div>
+    </Project> -->
+</div>

@@ -39,7 +39,7 @@ const { title, description } = Astro.props;
 	html {
 		background-color: #1f1f1f;
 		font-family: "Onest Variable", system-ui, sans-serif;
-		/* scroll-behavior: smooth; */
+		scroll-behavior: smooth;
 	}
 
 	body {
@@ -70,9 +70,21 @@ const { title, description } = Astro.props;
 		transition: all 0.1s;
 	}
 
-	/* @media (prefers-reduced-motion: reduce) {
+	#projects:has(div > label > input[name="personal"]:not(:checked))
+		> div
+		> div:not([data-type="Empresa"]) {
+		display: none;
+	}
+
+	#projects:has(div > label > input[name="enterprise"]:not(:checked))
+		> div
+		> div:not([data-type="Personal"]) {
+		display: none;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
 		html {
 			scroll-behavior: auto;
 		}
-	} */
+	}
 </style>

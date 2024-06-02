@@ -1,50 +1,66 @@
 ---
-interface experienceItem {
+export interface ExperienceItem {
     date: string;
+    company: string;
     title: string;
-    description: string;
+    descriptions: string[];
     link?: string;
 }
 
-const { date, title, description, link } = Astro.props;
+const { date, title, descriptions, link, company } =
+    Astro.props as ExperienceItem;
+console.log(descriptions);
 ---
 
-<div
-    class="absolute w-3 h-3 bg-[#14f10c] rounded-full mt-1.5 -start-1.5 border border-[#5dcbdf]"
->
-</div>
-<time class="mb-1 text-sm font-normal leading-none">{date}</time>
-<h3 class="text-lg font-semibold mt-3">
-    <span class="colored">
-        {title}
-    </span>
-</h3>
-<p class="mb-4 text-base font-normal opacity-70">
-    {description}
-</p>
-
-{
-    link && (
-        <a
-            href={link}
-            class="on-colored inline-flex items-center px-4 py-2 text-sm font-medium border rounded-lg"
+<div class="grid md:grid-cols-5 md:gap-10 md:space-x-4]">
+    <div class="md:col-span-2">
+        <div
+            class="absolute w-3 h-3 bg-[#14f10c] rounded-full mt-1.5 -start-1.5 border border-[#5dcbdf]"
         >
-            Saber más{" "}
-            <svg
-                class="w-3 h-3 ms-2 rtl:rotate-180"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
-            >
-                <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M1 5h12m0 0L9 1m4 4L9 9"
-                />
-            </svg>
-        </a>
-    )
-}
+        </div>
+        <time class="mb-1 text-sm font-normal leading-none">{date}</time>
+        <h3 class="text-lg font-semibold mt-3">
+            <span class="colored">
+                {title}
+            </span>
+        </h3>
+        <h4 class="font-semibold text-xl dark:text-white">
+            {company}
+        </h4>
+    </div>
+    <div class="md:col-span-3">
+        <ul class="mb-4 text-base font-normal opacity-70">
+            {
+                descriptions.map((description) => {
+                    return <li class="text-pretty">{description}</li>;
+                })
+            }
+        </ul>
+
+        {
+            link && (
+                <a
+                    href={link}
+                    class="on-colored inline-flex items-center px-4 py-2 text-sm font-medium border rounded-lg"
+                >
+                    Saber más{" "}
+                    <svg
+                        class="w-3 h-3 ms-2 rtl:rotate-180"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 14 10"
+                    >
+                        <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M1 5h12m0 0L9 1m4 4L9 9"
+                        />
+                    </svg>
+                </a>
+            )
+        }
+    </div>
+</div>

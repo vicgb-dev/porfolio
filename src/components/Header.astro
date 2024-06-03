@@ -1,12 +1,40 @@
+---
+import Code from "../icons/Code.astro";
+import Home from "../icons/Home.astro";
+import Rocket from "../icons/Rocket.astro";
+import Suitcase from "../icons/Suitcase.astro";
+---
+
 <header
-	class="flex justify-between items-center p-5 w-full max-w-7xl mx-auto fixed top-0 left-0 right-0 z-50"
+	class="flex justify-center items-center w-full max-w-7xl fixed top-0 left-0 right-0 z-50"
 >
-	<span></span>
-	<nav class="flex flex-row gap-x-10 opacity-80">
-		<a href="#" class="on-colored font-semibold">Inicio</a>
-		<a href="#experience" class="on-colored font-semibold">Experiencia</a>
-		<a href="#tech" class="on-colored font-semibold">Tecnologías</a>
-		<a href="#projects" class="on-colored font-semibold">Proyectos</a>
+	<nav
+		class="flex flex-row gap-x-10 text-opacity-80 bg-opacity-50 backdrop-blur-xl bg-zinc-800 py-4 px-6 mt-4 rounded-xl"
+	>
+		<a href="#" class="on-colored font-semibold flex gap-2">
+			<Home
+				class="lg:hidden hover:stroke-[#0fc209] transition-all duration-200 size-6"
+			/>
+			<span class="hidden lg:block">Inicio</span>
+		</a>
+		<a href="#experience" class="on-colored font-semibold flex gap-2">
+			<Suitcase
+				class="lg:hidden hover:stroke-[#0fc209] transition-all duration-200 size-6"
+			/>
+			<span class="hidden lg:block">Experiencia</span>
+		</a>
+		<a href="#tech" class="on-colored font-semibold flex gap-2">
+			<Code
+				class="lg:hidden hover:stroke-[#0fc209] transition-all duration-200 size-6"
+			/>
+			<span class="hidden lg:block">Tecnologías</span>
+		</a>
+		<a href="#projects" class="on-colored font-semibold flex gap-2">
+			<Rocket
+				class="lg:hidden hover:stroke-[#0fc209] transition-all duration-200 size-6"
+			/>
+			<span class="hidden lg:block">Proyectos</span>
+		</a>
 		<!-- <a href="#contact" class="on-colored font-semibold">Contacto</a> -->
 	</nav>
 </header>

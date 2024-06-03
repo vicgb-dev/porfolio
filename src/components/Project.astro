@@ -1,34 +1,46 @@
 ---
 import { Image } from "astro:assets";
-import { ProjectState, ProjectType } from "./Projects.astro";
+import { ProjectType } from "./Projects.astro";
 
 interface Project {
     type: ProjectType;
     typeColor: string;
-    state: ProjectState;
     name: string;
     technologies: any[];
     image: string;
-    url?: string;
 }
 
-const { type, typeColor, state, name, technologies, image, url } = Astro.props;
+const { type, typeColor, name, technologies, image } = Astro.props;
 ---
 
 <div data-type={type} class="mb-28">
     <div class="project">
+        <div class="shiny-container">
+            <div class="shiny rounded-xl">
+                <a href={`#${name}Img`} rel="noopener noreferrer">
+                    <Image class="rounded-xl" src={image} alt={name} />
+                    <div class="gradient"></div>
+                </a>
+            </div>
+        </div>
+        <a
+            class="hidden-img-div"
+            href={`#${name}Img_`}
+            id={`${name}Img`}
+            rel="noopener noreferrer"
+        >
+            <Image class="rounded-xl my-3" src={image} alt={name} />
+        </a>
         <h3 class="font-semibold text-2xl flex justify-between">
             <span>{name}</span>
             <span
                 class={`text-sm `}
                 style={{
                     color: typeColor,
-                }}>{type}</span
-            >
+                }}
+                >{type}
+            </span>
         </h3>
-        <div>
-            <Image class="rounded-xl my-3" src={image} alt={name} />
-        </div>
         <div>
             <div class="flex gap-5 my-3 flex-wrap">
                 {
@@ -52,3 +64,109 @@ const { type, typeColor, state, name, technologies, image, url } = Astro.props;
         </div>
     </div>
 </div>
+
+<style>
+    .hidden-img-div {
+        visibility: hidden;
+        position: fixed;
+        top: 5%;
+        right: 5%;
+        bottom: 5%;
+        left: 5%;
+        z-index: 75;
+        text-align: center;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hidden-img-div:before {
+        content: "";
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 74;
+
+        background-color: rgba(0, 0, 0, 0);
+        transition: all 0.5s ease-out;
+    }
+
+    .hidden-img-div img {
+        position: relative;
+        z-index: 77;
+        max-width: 100%;
+        max-height: 100%;
+
+        margin-left: -9999px;
+        opacity: 0;
+        transition-property: all, opacity;
+        transition-duration: 0.5s, 0.2s;
+        transition-timing-function: ease-in-out, ease-out;
+    }
+
+    .hidden-img-div:target {
+        visibility: visible;
+    }
+
+    .hidden-img-div:target:before {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .hidden-img-div:target img {
+        margin-left: 0px;
+        opacity: 1;
+    }
+
+    .shiny-container {
+        perspective: 1500px;
+        perspective-origin: center top;
+        height: max-content;
+    }
+    .shiny {
+        position: relative;
+        display: flex;
+        overflow: hidden;
+        transform-origin: 100% 0;
+        transition: transform 1s cubic-bezier(0.34, 0.96, 0.71, 0.86);
+        /* transition: all 0.5s ease-out; */
+    }
+
+    .shiny:hover {
+        transform: rotateX(10deg) translate(0, -10px);
+        transition: transform 1s cubic-bezier(0.34, 0.96, 0.71, 0.86);
+
+        .gradient {
+            height: 100%;
+            opacity: 1;
+        }
+    }
+
+    .gradient {
+        position: relative;
+        content: "";
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        transform: rotate(30deg);
+        transform-origin: top right;
+
+        width: 220%;
+        height: 65%;
+
+        opacity: 0.3;
+        background: linear-gradient(
+            0turn,
+            transparent 0%,
+            rgba(200, 200, 200, 0.4) 5%,
+            rgba(255, 255, 255, 0.2) 15%,
+            rgba(255, 255, 255, 0.1) 100%
+        );
+        transition:
+            height 1s cubic-bezier(0.34, 0.96, 0.71, 0.86),
+            opacity 1s cubic-bezier(0.34, 0.96, 0.71, 0.86);
+    }
+</style>

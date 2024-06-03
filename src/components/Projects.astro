@@ -11,10 +11,13 @@ import Tailwind from "../icons/Tailwind.astro";
 import TypeScript from "../icons/TypeScript.astro";
 import Unity from "../icons/Unity.astro";
 import Svelte from "../icons/Svelte.astro";
+import Crane from "../icons/Crane.astro";
 
 import gwydion from "../images/projects/gwydion.webp";
 import shapescape from "../images/projects/shapescape.webp";
 import destekpro from "../images/projects/destekpro.webp";
+import politicaltimeline from "../images/projects/politicaltimeline.webp";
+import stap2go from "../images/projects/stap2go.webp";
 
 export enum ProjectType {
     personal = "Personal",
@@ -74,17 +77,10 @@ export const TECHNOLOGIES = {
     },
 };
 
-export enum ProjectState {
-    published = "Publicado",
-    developing = "En desarrollo",
-    archived = "Archivado",
-}
-
 const projects = [
     {
         type: ProjectType.enterprise,
         typeColor: "#5dcbdf",
-        state: ProjectState.published,
         name: "Gwydion",
         technologies: [
             TECHNOLOGIES.TechNET,
@@ -92,63 +88,54 @@ const projects = [
             TECHNOLOGIES.TechCSharp,
         ],
         image: gwydion,
-        url: "https://www.gwydion.space/es/inicio/",
     },
     {
         type: ProjectType.personal,
         typeColor: "#14f10c",
-        state: ProjectState.published,
         name: "ShapeScape",
         technologies: [TECHNOLOGIES.TechUnity, TECHNOLOGIES.TechCSharp],
         image: shapescape,
-        url: "https://play.google.com/store/apps/details?id=com.FallingStudio.ShapeScape",
     },
     {
         type: ProjectType.enterprise,
         typeColor: "#5dcbdf",
-        state: ProjectState.published,
         name: "DestekPro",
         technologies: [
             TECHNOLOGIES.TechNET,
+            TECHNOLOGIES.TechCSharp,
             TECHNOLOGIES.TechFlutter,
             TECHNOLOGIES.TechDart,
         ],
         image: destekpro,
-        url: "https://destekpro.app",
     },
     {
         type: ProjectType.personal,
         typeColor: "#14f10c",
-        state: ProjectState.developing,
         name: "Political Timeline",
         technologies: [
             TECHNOLOGIES.TechNET,
-            TECHNOLOGIES.TechSupabase,
             TECHNOLOGIES.TechCSharp,
+            TECHNOLOGIES.TechSupabase,
             TECHNOLOGIES.TechReact,
             TECHNOLOGIES.TechTypeScript,
             TECHNOLOGIES.TechTailwind,
         ],
-        image: "/images/projects/circle.png",
-        url: "https://circle.josebrowne.com",
+        image: politicaltimeline,
     },
     {
         type: ProjectType.enterprise,
         typeColor: "#5dcbdf",
-        state: ProjectState.published,
         name: "STap2Go",
         technologies: [
             TECHNOLOGIES.TechNET,
             TECHNOLOGIES.TechUnity,
             TECHNOLOGIES.TechCSharp,
         ],
-        image: "/images/projects/orange.png",
-        url: "https://orange.josebrowne.com",
+        image: stap2go,
     },
     {
         type: ProjectType.personal,
         typeColor: "#14f10c",
-        state: ProjectState.archived,
         name: "WeDay",
         technologies: [
             TECHNOLOGIES.TechSupabase,
@@ -157,7 +144,6 @@ const projects = [
             TECHNOLOGIES.TechTailwind,
         ],
         image: "/images/projects/square.png",
-        url: "https://square.josebrowne.com",
     },
 ];
 ---
@@ -231,22 +217,37 @@ const projects = [
             />
         </div>
     </Project>
-    <!-- <Project {...projects[3]}>
+    <Project {...projects[3]}>
         <div slot="description">
+            <!-- Political Timeline -->
             Medio de comunicación digital que busca informar de la manera más objetiva
             posible sobre eventos políticos de España. Tendrá funciones de red social
-            para que los usuarios puedan poner sus propios eventos aprobados y publicados
-            por la administración previamente.
+            para que los usuarios puedan publicar sus propios eventos previamente
+            aprobados por la administración, con ayuda de un editor de texto estilo
+            Notion.
+            <div class="flex items-center justify-center gap-5 text-yellow-400">
+                <Crane class="size-8" />
+                <span class="font-bold text-xl"> En desarrollo</span>
+                <Crane class="size-8" />
+            </div>
         </div>
     </Project>
     <Project {...projects[4]}>
         <div slot="description">
-            Serious game para la mejora de las funciones cognitivas de personas con
-            TDAH y TDA. El juego se basa en una serie de sesiones de entrenamiento
-            cognitivo que se realizan bajo supervisión de un profesional de la salud.
+            <span class="italic">Serious game</span> para la mejora de las funciones
+            cognitivas de personas con TDAH y TDA. El juego se basa en una serie
+            de sesiones de entrenamiento cognitivo que se realizan bajo supervisión
+            de un profesional de la salud.
+        </div>
+
+        <div slot="link">
+            <Link
+                url="https://play.google.com/store/apps/details?id=com.GeneticAI.STap2Go&hl=es"
+                text="Ver STap2Go en Google Play..."
+            />
         </div>
     </Project>
-    <Project {...projects[5]}>
+    <!-- <Project {...projects[5]}>
         <div slot="description">
             Wedding planner online que te ayudará a organizar tu boda de principio
             a fin. Podrás elegir entre una serie de invitaciones de boda y personalizarlas

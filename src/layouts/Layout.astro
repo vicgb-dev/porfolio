@@ -22,7 +22,7 @@ const { title, description } = Astro.props;
 	</head>
 	<body>
 		<div
-			class="fixed top-0 z-[-2] h-screen w-screen bg-[#0e0e0e] bg-[radial-gradient(#ffffff33_1px,#0e0e0e_1px)] bg-[size:20px_20px]"
+			class="fixed top-0 z-[-2] h-screen w-screen bg-[#d8d8d8] bg-[radial-gradient(#ffffff33_1px,#ffffff_1px)] dark:bg-[#0e0e0e] dark:bg-[radial-gradient(#ffffff33_1px,#0e0e0e_1px)] bg-[size:20px_20px]"
 		>
 		</div>
 		<div class="px-10">
@@ -49,9 +49,18 @@ const { title, description } = Astro.props;
 	}
 
 	.colored {
-		background: linear-gradient(45deg, #14f10c, #5dcbdf);
+		background: linear-gradient(45deg, #0fc209, #49a7b8);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+	}
+
+	/* when dark mode */
+	@media (prefers-color-scheme: dark) {
+		.colored {
+			background: linear-gradient(45deg, #14f10c, #5dcbdf);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
 	}
 
 	.on-colored:hover {
@@ -59,15 +68,16 @@ const { title, description } = Astro.props;
 		font-weight: 600;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		scale: 1.05;
-		transition: all 0.1s;
+		scale: 1.1;
+		transition: all 0.2s;
 	}
 
 	.on-colored-bg:hover {
 		background: linear-gradient(45deg, #14f10c, #5dcbdf);
 		font-weight: 600;
-		scale: 1.05;
-		transition: all 0.1s;
+		scale: 1.2;
+		transform: translate(0px, -5px);
+		transition: all 0.2s;
 	}
 
 	#projects:has(div > label > input[name="personal"]:not(:checked))

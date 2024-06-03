@@ -1,4 +1,4 @@
-<div class="flex items-center">
+<div class="flex items-center hover:scale-110 transition-all duration-200">
     <span class="relative inline-flex overflow-hidden rounded-full p-[1px]">
         <span
             class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#51E4B8_0%,#21554E_50%,#51E4B8_100%)]"
@@ -8,8 +8,7 @@
             inline-flex items-center justify-center
             rounded-full cursor-pointer
             backdrop-blur-3xl whitespace-nowrap
-            text-green-300 bg-[#0e0e0e]
-            dark:bg-gray-800 dark:text-white/80"
+            text-green-300 bg-[#0e0e0e] on-colored-container transition-all duration-200"
         >
             <slot />
         </div>

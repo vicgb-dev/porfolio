@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import dotenv from 'dotenv';
 
 import tailwind from "@astrojs/tailwind";
 
@@ -7,6 +8,6 @@ export default defineConfig({
   integrations: [tailwind()],
   server: {
     host: '0.0.0.0',
-    port: 80,
+    port: process.env.PORT || 80,
   },
 });

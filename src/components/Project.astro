@@ -14,8 +14,8 @@ const { type, typeColor, name, technologies, image } = Astro.props;
 ---
 
 <div data-type={type} class="mb-28">
-    <div class="project">
-        <div class="shiny-container">
+    <div class="project lg:flex gap-4">
+        <div class="shiny-container pb-3 flex-1">
             <div class="shiny rounded-xl">
                 <a href={`#${name}Img`} rel="noopener noreferrer">
                     <Image class="rounded-xl" src={image} alt={name} />
@@ -23,44 +23,47 @@ const { type, typeColor, name, technologies, image } = Astro.props;
                 </a>
             </div>
         </div>
-        <a
-            class="hidden-img-div"
-            href={`#${name}Img_`}
-            id={`${name}Img`}
-            rel="noopener noreferrer"
-        >
-            <Image class="rounded-xl my-3" src={image} alt={name} />
-        </a>
-        <h3 class="font-semibold text-2xl flex justify-between">
-            <span>{name}</span>
-            <span
-                class={`text-sm `}
-                style={{
-                    color: typeColor,
-                }}
-                >{type}
-            </span>
-        </h3>
-        <div>
-            <div class="flex gap-5 my-3 flex-wrap">
-                {
-                    technologies.map((technology: any) => {
-                        return (
-                            <div
-                                style={{
-                                    backgroundColor: technology.color + "50",
-                                }}
-                                class="flex gap-3 border rounded-xl p-1 px-3 items-center text-xs "
-                            >
-                                <technology.icon class="size-4" />
-                                {technology.name}
-                            </div>
-                        );
-                    })
-                }
+        <div class="flex-[1.5]">
+            <a
+                class="hidden-img-div"
+                href={`#${name}Img_`}
+                id={`${name}Img`}
+                rel="noopener noreferrer"
+            >
+                <Image class="rounded-xl my-3" src={image} alt={name} />
+            </a>
+            <h3 class="font-semibold text-2xl flex justify-between">
+                <span>{name}</span>
+                <span
+                    class={`text-sm `}
+                    style={{
+                        color: typeColor,
+                    }}
+                    >{type}
+                </span>
+            </h3>
+            <div>
+                <div class="flex gap-5 my-3 flex-wrap">
+                    {
+                        technologies.map((technology: any) => {
+                            return (
+                                <div
+                                    style={{
+                                        backgroundColor:
+                                            technology.color + "50",
+                                    }}
+                                    class="flex gap-3 border rounded-xl p-1 px-3 items-center text-xs "
+                                >
+                                    <technology.icon class="size-4" />
+                                    {technology.name}
+                                </div>
+                            );
+                        })
+                    }
+                </div>
+                <slot name="description" />
+                <slot name="link" />
             </div>
-            <slot name="description" />
-            <slot name="link" />
         </div>
     </div>
 </div>

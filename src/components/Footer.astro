@@ -1,1 +1,32 @@
-<div class="mt-96"></div>
+---
+import GitHub from "../icons/GitHub.astro";
+import MailTo from "../icons/MailTo.astro";
+---
+
+<div class="w-full h-40">
+    <div
+        class="lg:w-[850px] md:w-[600px] pt-5 px-8 flex items-center justify-between m-auto"
+    >
+        <a
+            href=""
+            class="on-colored transition-all duration-200 items-center py-2 text-lg font-medium flex gap-2 group"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <GitHub
+                class="size-6 group-hover:fill-[#0fc209] transition-all duration-100"
+            />
+            Repositorio del Porfolio
+        </a>
+
+        <a
+            href="mailto:vic.gb3@gmail.com"
+            class="on-colored transition-all duration-200 font-semibold flex gap-2"
+        >
+            <MailTo
+                class="md:hidden hover:stroke-[#0fc209] transition-all duration-200 size-6"
+            />
+            <span class="hidden md:block">Contacto</span>
+        </a>
+    </div>
+</div>

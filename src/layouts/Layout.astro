@@ -25,10 +25,8 @@ const { title, description } = Astro.props;
 			class="fixed top-0 z-[-2] h-screen w-screen bg-[#d8d8d8] bg-[radial-gradient(#ffffff33_1px,#ffffff_1px)] dark:bg-[#0e0e0e] dark:bg-[radial-gradient(#ffffff33_1px,#0e0e0e_1px)] bg-[size:20px_20px]"
 		>
 		</div>
-		<div class="px-10">
-			<Header />
-			<slot />
-		</div>
+		<Header />
+		<slot />
 	</body>
 </html>
 <style is:global>
@@ -50,7 +48,6 @@ const { title, description } = Astro.props;
 
 	.colored {
 		background: linear-gradient(45deg, #0fc209, #49a7b8);
-		stroke: #0fc209;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}

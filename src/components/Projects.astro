@@ -12,6 +12,9 @@ import TypeScript from "../icons/TypeScript.astro";
 import Unity from "../icons/Unity.astro";
 import Svelte from "../icons/Svelte.astro";
 import Crane from "../icons/Crane.astro";
+import PlayStore from "../icons/PlayStore.astro";
+import GitHub from "../icons/GitHub.astro";
+import Cube3D from "../icons/Cube3D.astro";
 
 import gwydion from "../images/projects/gwydion.webp";
 import shapescape from "../images/projects/shapescape.webp";
@@ -171,68 +174,89 @@ const projects = [
 
 <div class="projects">
     <Project {...projects[0]}>
+        <!-- Gwydion -->
         <div slot="description">
-            <!-- Gwydion -->
-            Plataforma de XR en HoloLens2 para la creación de experiencias inmersivas,
-            orientado a la formación en el ámbito de la salud y la industria 4.0.
-            Andy te ayudará en el proceso de completar casos, realizar pruebas y
-            aprender de una manera más interactiva.
+            Plataforma de XR en HoloLens2 para la creación de experiencias
+            inmersivas, orientado a la formación en el ámbito de la salud y la
+            industria 4.0. Andy te ayudará en el proceso de completar casos,
+            realizar pruebas y aprender de una manera más interactiva.
         </div>
-        <div slot="link">
+        <div slot="link" class="flex flex-col gap-2">
             <Link
                 url="https://www.gwydion.space/es/inicio/"
                 text="Ver Gwydion..."
-            />
+            >
+                <Cube3D class="size-5" />
+            </Link>
         </div>
     </Project>
     <Project {...projects[1]}>
+        <!-- ShapeScape -->
         <div slot="description">
-            <!-- ShapeScape -->
-            Juego arcade con estilo minimalista en el que tendrás que esquivar enemigos
-            que aparecen al ritmo de la música clásica. Cuenta con más de 30 niveles,
-            desafíos y paquetes de personalización. Puedes jugarlo en tu móvil Android
-            o ver el trailer desde Google Play.
+            Juego arcade con estilo minimalista en el que tendrás que esquivar
+            enemigos que aparecen al ritmo de la música clásica. Cuenta con más
+            de 30 niveles, desafíos y paquetes de personalización. Puedes
+            jugarlo en tu móvil Android o ver el trailer desde Google Play.
         </div>
 
-        <div slot="link">
+        <div slot="link" class="flex flex-col gap-2">
             <Link
                 url="https://play.google.com/store/apps/details?id=com.FallingStudio.ShapeScape"
                 text="Ver ShapeScape en Google Play..."
-            />
+            >
+                <PlayStore class="size-5" />
+            </Link>
+            <Link
+                url="https://github.com/vicgb-dev/ForesBall"
+                text="Ver repositorio en GitHub..."
+            >
+                <GitHub class="size-5" />
+            </Link>
         </div>
     </Project>
     <Project {...projects[2]}>
+        <!-- DestekPro -->
         <div slot="description">
-            <!-- DestekPro -->
-            Plataforma para IOS, Andriod y web para el mantenimiento de forma remota
-            de maquinaria industrial. También podrás poner incidencias entre cliente
-            y empresa, concretar citas, almacenar archivos, asignación de incidencias,
-            chat en tiempo real...
+            Plataforma para IOS, Andriod y web para el mantenimiento de forma
+            remota de maquinaria industrial. También podrás poner incidencias
+            entre cliente y empresa, concretar citas, almacenar archivos,
+            asignación de incidencias, chat en tiempo real...
         </div>
 
-        <div slot="link">
+        <div slot="link" class="flex flex-col gap-2">
             <Link
                 url="https://play.google.com/store/apps/details?id=ai.genetic.destek&hl=es_SV"
                 text="Ver DestekPro en Google Play..."
-            />
+            >
+                <PlayStore class="size-5" />
+            </Link>
         </div>
     </Project>
     <Project {...projects[3]}>
+        <!-- Political Timeline -->
         <div slot="description">
-            <!-- Political Timeline -->
-            Medio de comunicación digital que busca informar de la manera más objetiva
-            posible sobre eventos políticos de España. Tendrá funciones de red social
-            para que los usuarios puedan publicar sus propios eventos previamente
-            aprobados por la administración, con ayuda de un editor de texto estilo
-            Notion.
+            Medio de comunicación digital que busca informar de la manera más
+            objetiva posible sobre eventos políticos de España. Tendrá funciones
+            de red social para que los usuarios puedan publicar sus propios
+            eventos previamente aprobados por la administración, con ayuda de un
+            editor de texto estilo Notion.
             <div class="flex items-center justify-center gap-5 text-yellow-400">
                 <Crane class="size-8" />
                 <span class="font-bold text-xl"> En desarrollo</span>
                 <Crane class="size-8" />
             </div>
         </div>
+        <div slot="link" class="flex flex-col gap-2">
+            <Link
+                url="https://github.com/vicgb-dev/political-timeline-web"
+                text="Ver repositorio de la web en GitHub..."
+            >
+                <GitHub class="size-5" />
+            </Link>
+        </div>
     </Project>
     <Project {...projects[4]}>
+        <!-- STap2Go -->
         <div slot="description">
             <span class="italic">Serious game</span> para la mejora de las funciones
             cognitivas de personas con TDAH y TDA. El juego se basa en una serie
@@ -240,11 +264,13 @@ const projects = [
             de un profesional de la salud.
         </div>
 
-        <div slot="link">
+        <div slot="link" class="flex flex-col gap-2">
             <Link
                 url="https://play.google.com/store/apps/details?id=com.GeneticAI.STap2Go&hl=es"
                 text="Ver STap2Go en Google Play..."
-            />
+            >
+                <PlayStore class="size-5" />
+            </Link>
         </div>
     </Project>
     <!-- <Project {...projects[5]}>

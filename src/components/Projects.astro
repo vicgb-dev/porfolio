@@ -21,6 +21,10 @@ import shapescape from "../images/projects/shapescape.webp";
 import destekpro from "../images/projects/destekpro.webp";
 import politicaltimeline from "../images/projects/politicaltimeline.webp";
 import stap2go from "../images/projects/stap2go.webp";
+import erp from "../images/projects/erp.webp";
+import game from "../images/projects/game.webp";
+import Angular from "../icons/Angular.astro";
+import NestJS from "../icons/NestJS.astro";
 
 export enum ProjectType {
     personal = "Personal",
@@ -77,6 +81,16 @@ export const TECHNOLOGIES = {
         name: "Svelte",
         color: "#ff3e00",
         icon: Svelte,
+    },
+    TechAngular: {
+        name: "Angular",
+        color: "#d40989",
+        icon: Angular,
+    },
+    TechNestJS: {
+        name: "NestJS",
+        color: "#e0234e",
+        icon: NestJS,
     },
 };
 
@@ -139,14 +153,22 @@ const projects = [
     {
         type: ProjectType.personal,
         typeColor: "#14f10c",
-        name: "WeDay",
+        name: "Angular ERP",
         technologies: [
             TECHNOLOGIES.TechSupabase,
-            TECHNOLOGIES.TechSvelte,
+            TECHNOLOGIES.TechAngular,
             TECHNOLOGIES.TechTypeScript,
             TECHNOLOGIES.TechTailwind,
+            TECHNOLOGIES.TechNestJS,
         ],
-        image: "/images/projects/square.png",
+        image: erp,
+    },
+    {
+        type: ProjectType.personal,
+        typeColor: "#14f10c",
+        name: "Show Manager",
+        technologies: [TECHNOLOGIES.TechUnity, TECHNOLOGIES.TechCSharp],
+        image: game,
     },
 ];
 ---
@@ -273,14 +295,34 @@ const projects = [
             </Link>
         </div>
     </Project>
-    <!-- <Project {...projects[5]}>
+    <Project {...projects[5]}>
+        <!-- ERP -->
         <div slot="description">
-            Wedding planner online que te ayudará a organizar tu boda de principio
-            a fin. Podrás elegir entre una serie de invitaciones de boda y personalizarlas
-            a tu gusto. Además, podrás invitar a tus amigos y familiares a través
-            de la plataforma y recibir confirmaciones de asistencia. También te podrás
-            poner en contacto con servicios de terceros como catering, fotografía,
-            música, transporte, etc. a través de la plataforma.
+            ERP para administración de empresas con arquitectura modular. Cada
+            empresa podrá administrar sus módulos y asignar permisos, posiciones
+            y jerarquías a sus empleados. Además, podrán gestionar sus clientes,
+            proveedores, facturas, almacén, ventas, compras, contabilidad, etc.
+            En estos momentos se encuentra en fase de desarrollo, comenzando por
+            el módulo de "Control Horario".
+            <div class="flex items-center justify-center gap-5 text-yellow-400">
+                <Crane class="size-8" />
+                <span class="font-bold text-xl"> En desarrollo</span>
+                <Crane class="size-8" />
+            </div>
         </div>
-    </Project> -->
+    </Project>
+    <Project {...projects[6]}>
+        <!-- Juego -->
+        <div slot="description">
+            Juego 3D en Unity en el que eres el único realizador de un programa
+            de televisión. Tendrás que elegir al presentador, invitado, temas de
+            conversación, preguntas, etc. En estos momentos soy el único
+            programador del proyecto y formo equipo con 2 artistas 3D.
+            <div class="flex items-center justify-center gap-5 text-yellow-400">
+                <Crane class="size-8" />
+                <span class="font-bold text-xl"> En desarrollo</span>
+                <Crane class="size-8" />
+            </div>
+        </div>
+    </Project>
 </div>

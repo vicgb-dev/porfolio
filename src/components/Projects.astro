@@ -98,6 +98,18 @@ const projects = [
     {
         type: ProjectType.enterprise,
         typeColor: "#5dcbdf",
+        name: "Tridiom - Traducción",
+        technologies: [
+            TECHNOLOGIES.TechAngular,
+            TECHNOLOGIES.TechTypeScript,
+            TECHNOLOGIES.TechNET,
+            TECHNOLOGIES.TechCSharp,
+        ],
+        image: gwydion,
+    },
+    {
+        type: ProjectType.enterprise,
+        typeColor: "#5dcbdf",
         name: "Gwydion",
         technologies: [
             TECHNOLOGIES.TechNET,
@@ -198,6 +210,15 @@ const projects = [
     <Project {...projects[0]}>
         <!-- Gwydion -->
         <div slot="description">
+            Plataforma web, solo para trabajadores, en la que puedes administrar sesiones de eventos y a otros usuarios.
+            Es una herramienta para crear sesiones para eventos, ponencias o reuniones en las que el emisor habla en uno de los idiomas configurados y los receptores lo leerán y/o escucharán en tiempo real en el idioma elegido.
+            Las sesiones se forman con un formulario complejo en el que defines las posibles entradas de audio y las posibles salidas de texto y audio.
+            Los receptores acceden al servicio con un enlace o integrándolo en cualquier sitio web con un iframe.
+        </div>
+    </Project>
+    <Project {...projects[1]}>
+        <!-- Gwydion -->
+        <div slot="description">
             Plataforma de XR en HoloLens2 para la creación de experiencias
             inmersivas, orientado a la formación en el ámbito de la salud y la
             industria 4.0. Andy te ayudará en el proceso de completar casos,
@@ -212,7 +233,7 @@ const projects = [
             </Link>
         </div>
     </Project>
-    <Project {...projects[1]}>
+    <Project {...projects[2]}>
         <!-- ShapeScape -->
         <div slot="description">
             Juego arcade con estilo minimalista en el que tendrás que esquivar
@@ -236,7 +257,7 @@ const projects = [
             </Link>
         </div>
     </Project>
-    <Project {...projects[2]}>
+    <Project {...projects[3]}>
         <!-- DestekPro -->
         <div slot="description">
             Plataforma para IOS, Andriod y web para el mantenimiento de forma
@@ -254,7 +275,7 @@ const projects = [
             </Link>
         </div>
     </Project>
-    <Project {...projects[3]}>
+    <Project {...projects[4]}>
         <!-- Political Timeline -->
         <div slot="description">
             Medio de comunicación digital que busca informar de la manera más
@@ -277,7 +298,7 @@ const projects = [
             </Link>
         </div>
     </Project>
-    <Project {...projects[4]}>
+    <Project {...projects[5]}>
         <!-- STap2Go -->
         <div slot="description">
             <span class="italic">Serious game</span> para la mejora de las funciones
@@ -295,7 +316,7 @@ const projects = [
             </Link>
         </div>
     </Project>
-    <Project {...projects[5]}>
+    <Project {...projects[6]}>
         <!-- ERP -->
         <div slot="description">
             ERP para administración de empresas con arquitectura modular. Cada
@@ -311,7 +332,7 @@ const projects = [
             </div>
         </div>
     </Project>
-    <Project {...projects[6]}>
+    <Project {...projects[7]}>
         <!-- Juego -->
         <div slot="description">
             Juego 3D en Unity en el que eres el único realizador de un programa
